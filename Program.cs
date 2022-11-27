@@ -12,7 +12,7 @@
     return newArray;
 }
 
-/*
+
 void ShowArray(string[] array)
 {
     Console.Write("[");
@@ -28,7 +28,6 @@ void ShowArray(string[] array)
     Console.Write("]");
     Console.WriteLine();
 }
-*/
 
 void NoMoreThenThree(string[] array)
 {   
