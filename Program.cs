@@ -29,7 +29,9 @@ void ShowArray(string[] array)
     Console.WriteLine();
 }
 
-void NoMoreThenThree(string[] array)
+// Additional decision
+/*
+void NoMoreThanThree(string[] array)
 {   
     Console.Write("[");
     for(int i = 0; i < array.Length - 1; i++)
@@ -42,7 +44,6 @@ void NoMoreThenThree(string[] array)
             Console.Write($"{n}, ");
         }
     }
-
         
     if(array[array.Length - 1].Length <= 3)
     {
@@ -53,6 +54,37 @@ void NoMoreThenThree(string[] array)
     Console.Write("]");
     Console.WriteLine();
 }
+*/
+
+string[] NoMoreThanThree(string[] array)
+{
+    int size = 0;
+
+    for(int i = 0; i < array.Length; i++)
+    {   
+        string n = array[i];
+        int l = n.Length;
+        
+        if(l <= 3) size++;
+    }
+
+    string [] abbArray = new string[size];
+    int j = 0;
+
+    for(int i = 0; i < array.Length; i++)
+    {   
+        string n = array[i];
+        int l = n.Length;
+        
+        if(l <= 3)
+        {
+            abbArray[j] = n;
+            j++;
+        }
+    }
+    
+    return abbArray;
+}
 
 Console.Write("Input a number of elements: ");
 int size = Convert.ToInt32(Console.ReadLine());
@@ -60,7 +92,5 @@ string[] myArray = CreateArray(size);
 Console.WriteLine("This is your array: ");
 ShowArray(myArray);
 Console.WriteLine("This is an array of elements whose string length is no longer than 3: ");
-NoMoreThenThree(myArray);
-
-
-
+string [] abbArray = NoMoreThanThree(myArray);
+ShowArray(abbArray);
